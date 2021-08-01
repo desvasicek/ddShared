@@ -1,0 +1,134 @@
+<style>
+.lang-css {
+	background-color: #8B6914;
+	width: 15%;
+	padding: 5px 5px 5px 5px;
+	color: #BFBFBF;
+}
+.lang-js {
+	background-color: #800080;
+	width: 65%;
+	padding: 5px 5px 5px 5px;
+	color: #BFBFBF;
+}
+.lang-html {
+	background-color: #A52A2A;
+	width: 20%;
+	padding: 5px 5px 5px 5px;
+	color: #BFBFBF;
+}
+table {
+	border: none;
+	float: center;
+}
+td, th {
+	padding: 5px 5px 5px 5px;
+}
+#title {
+	float: right;
+}
+#c {
+	float: left;
+}
+</style>
+<!DOCTYPE html>
+<link rel=icon href=morsecodericon.png>
+<pre><small id=title>Morse Coder v<sub>1.1</sub></small>
+</pre>
+<input id=in><button id=encode>Encode</button><input id=out disabled><button id=print>Print History</button>
+<title>Morse Coder</title>
+<table border=1 id=history><th span=col>Word(s)</th><th span=col>Encoded</th></table>
+<script>
+var used = []
+var code = []
+var num = -1
+document.getElementById('encode').onclick = function createMorse() {
+	var txt = document.getElementById('in').value
+	used.push(txt)
+	var txt = document.getElementById('in').value.toUpperCase().split('');
+	console.log(txt)
+	for (i = 0; i < txt.length; i++) {
+		console.log(txt[i])
+		txt[i] = txt[i].replace("A",	".- ")
+		txt[i] = txt[i].replace("B",	"-... ")
+		txt[i] = txt[i].replace("C",	"-.-. ")
+		 txt[i] = txt[i].replace("D",	"-.. ")
+		 txt[i] = txt[i].replace("E",	". ")
+		 txt[i] = txt[i].replace("F",	"..-. ")
+		 txt[i] = txt[i].replace("G",	"--. ")
+		 txt[i] = txt[i].replace("H",	".... ")
+		 txt[i] = txt[i].replace("I",	".. ")
+		 txt[i] = txt[i].replace("J",	 ".--- ")
+		 txt[i] = txt[i].replace("K",	"-.- ")
+		 txt[i] = txt[i].replace("L",	".-.. ")
+		 txt[i] = txt[i].replace("M",	"-- ")
+		 txt[i] = txt[i].replace("N",	"-. ")
+		 txt[i] = txt[i].replace("O",	"--- ")
+		 txt[i] = txt[i].replace("P",	".--. ")
+		 txt[i] = txt[i].replace("Q",	"--.- ")
+		 txt[i] = txt[i].replace("R",	".-. ")
+		 txt[i] = txt[i].replace("S",	"... ")
+		 txt[i] = txt[i].replace("T",	"- ")
+		 txt[i] = txt[i].replace("U",	"..- ")
+		 txt[i] = txt[i].replace("V",	"...- ")
+		 txt[i] = txt[i].replace("W",	".-- ")
+		 txt[i] = txt[i].replace("X",	"-..- ")
+		 txt[i] = txt[i].replace("Y",	"-.-- ")
+		 txt[i] = txt[i].replace("Z",	"--.. ")
+		 	txt[i] = txt[i].replace(",", "--..-- ")
+		 	txt[i] = txt[i].replace("?",	"..--.. ")
+		 	txt[i] = txt[i].replace("'",	".----. ")
+		 	txt[i] = txt[i].replace("!",	"-.-.-- ")
+		 	txt[i] = txt[i].replace("/",	"-..-. ")
+			txt[i] = txt[i].replace("(", "-.--. ")
+			txt[i] = txt[i].replace(")", "-.--.- ")
+			txt[i] = txt[i].replace("&",	".-... ")
+			txt[i] = txt[i].replace(":", "---... ")
+			txt[i] = txt[i].replace(";",	"-.-.-. ")
+			txt[i] = txt[i].replace("=", "-...- ")
+			txt[i] = txt[i].replace("+",	".-.-. ")
+			txt[i] = txt[i].replace("_",	"..--.- ")
+			txt[i] = txt[i].replace('"', ".-..-. ")
+			txt[i] = txt[i].replace("$",	"...-..- ")
+			txt[i] = txt[i].replace("@",	".--.-. ")
+			txt[i] = txt[i].replace("¿",	"..-.- ")
+			txt[i] = txt[i].replace("¡",	"--...- ")
+			txt[i] = txt[i].replace("0",	"----- ")
+			txt[i] = txt[i].replace("1",	".---- ")
+			txt[i] = txt[i].replace("2",	"..--- ")
+			txt[i] = txt[i].replace("3",	"...-- ")
+			txt[i] = txt[i].replace("4",	"....- ")
+			txt[i] = txt[i].replace("5",	"..... ")
+			txt[i] = txt[i].replace("6",	"-.... ")
+			txt[i] = txt[i].replace("7",	"--... ")
+			txt[i] = txt[i].replace("8",	"---.. ")
+			txt[i] = txt[i].replace("9",	"----. ")
+			console.log(txt[i])
+	}
+	var txt = txt.join("")
+
+	num = num + 1
+	document.getElementById('out').value = txt
+		code.push(txt)
+		document.getElementById('history').innerHTML = document.getElementById('history').innerHTML + '<tr><td>' + used[num] + '</td><td>' + code[num] + '</td></tr>'
+}
+document.getElementById('print').onclick  = function print() {
+	if (code.length == 0) {
+		window.alert('You must add something!')
+	} else {
+		var inEle = document.getElementById('in')
+		var out = document.getElementById('out')
+		var encode = document.getElementById('encode')
+		var print = document.getElementById('print')
+		inEle.style.visibility = "hidden" 
+		out.style.visibility = "hidden" 
+		encode.style.visibility = "hidden"
+		print.style.visibility = "hidden"
+		window.print();
+			inEle.style.visibility = "visible" 
+		out.style.visibility = "visible" 
+		encode.style.visibility = "visible"
+		print.style.visibility = "visible"
+	}
+}
+</script>
