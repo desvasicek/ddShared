@@ -1,0 +1,40 @@
+#keyboard {
+	text-align: center;
+	bottom: 5px;
+	 position: absolute;
+	bottom: 0;
+	left: 30%;
+	float: center;
+	padding: 5px 5px 5px 5px;
+}
+.key {
+	font-family: Verdana;
+	color: #777777;
+	font-size: 16px;
+	border-radius: 5px;
+	border: 1px #dcdcdc solid;
+	padding: 10px 18px;
+	background: linear-gradient(180deg, #ededed 5%, #dfdfdf 100%);
+	text-shadow: 1px 1px 1px #ffffff;
+	box-shadow: inset 1px 1px 2px 0px #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	-webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+.key:hover {
+	background: linear-gradient(180deg, #dfdfdf 5%, #ededed 100%);    
+}
+.key span{
+	display: block;
+	position: relative;
+	top: 2px;
+}
+.key pre{
+	display: block;
+	position: relative;
+	top: 2px;
+}
