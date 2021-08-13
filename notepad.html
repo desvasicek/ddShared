@@ -1,0 +1,68 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.label {
+	background-color: #E5E5E5;
+	padding: 3px 3px 3px 3px;
+	text-align: center;
+}
+.note {
+	background-color: #DADADA;
+	padding: 5px 5px 5px 5px;
+	height: 150px;
+	overflow: scroll;
+}
+.add {
+	background-color: #AECDB0;
+	padding: 3px 3px 3px 3px;
+	text-align: center;
+	overflow: hidden;
+}
+.save {
+	background-color: #AEB5CD;
+	padding: 3px 3px 3px 3px;
+	text-align: center;
+	overflow: hidden;
+}
+small {
+	position: absolute;
+	bottom: 0;
+	left: 94%;
+	font-size: 10px;
+}
+.author {
+	background-color: #CDAFAE;
+	padding: 4px 4px 4px 4px;
+	text-align: center;
+	overflow: hidden;
+}
+.clear {
+	background-color: #AECDCD;
+	padding: 4px 4px 4px 4px;
+	text-align: center;
+	overflow: hidden;
+}
+h1 {
+	text-align: center;
+}
+</style>
+<script>
+function get() {
+	document.getElementById('notepads').innerHTML = localStorage.getItem('html');
+}
+</script>
+<body onload='get()'>
+<h1>NOTEPAD</h1>
+<div id=notepads></div>
+<div class=add onclick='newNote()'>&#43;</div>
+<div class=save onclick='save()'>&#11015;</div>
+<div class=clear onclick='localStorage.clear(); document.getElementById("notepads").innerHTML = "";'>&times;</div>
+<script>
+function newNote() {
+	document.getElementById('notepads').innerHTML +=  '<p><div class=label contenteditable>New Note</div><div class=author contenteditable></div></p><div class=note contenteditable></div>';
+}
+function save() {
+	var html = document.getElementById('notepads').innerHTML;
+	localStorage.setItem('html', html);
+}
+</script>
+</body>
